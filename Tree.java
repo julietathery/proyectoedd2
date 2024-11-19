@@ -9,94 +9,122 @@ package proyectoedd2;
  * @author julietathery
  */
 public class Tree {
+    private NodoArbol root;
     
-    private class Nodo {
-        Family family;
-        Nodo left;
-        Nodo right;
-        
-        public Nodo(Family family) {
-            this.family = family;
-            this.left = null;
-            this.right = null;
-        }
-    }
-    
-    
-    private Nodo root;
-    
-    public Tree() {
-        this.root = null;
-    }
     
     
     /**
-     * Metodos que permiten insertar 
-     * @param root
-     * @param family
+     * Constructor de la clase 
+     */
+    public Tree(){
+        this.root = null;
+    }
+
+    
+    /**
+     * Getters and setters de la clase 
      * @return 
      */
-    
-    public void insert(Family family) {
-        root = insertRec(root, family);
-    }
-    
-    
-    private Nodo insertRec(Nodo root, Family family) {
-        if (root == null) {
-            return new Nodo(family);
-        }
-        
-        // Compara los nombres de las familias para mantener el orden
-        if (family.getName().compareTo(root.family.getName()) < 0) {
-            root.left = insertRec(root.left, family);
-        } else if (family.getName().compareTo(root.family.getName()) > 0) {
-            root.right = insertRec(root.right, family);
-        }
-        
+    public NodoArbol getRoot() {
         return root;
     }
     
+
+    public void setRoot(NodoArbol root) {
+        this.root = root;
+    }
+    
     
     /**
-     * Metodo para buscar en el arbol
-     * @param name
+     * Metodo que verifica si el arbol esta vacio 
      * @return 
      */
     
-    public Family search(String name) {
-        Nodo result = searchRec(root, name);
-        return result != null ? result.family : null;
+    public boolean isEmpty(){
+        return getRoot()== null;
     }
     
-    
-    private Nodo searchRec(Nodo root, String name) {
-        if (root == null || root.family.getName().equals(name)) {
-            return root;
-        }
-        
-        if (name.compareTo(root.family.getName()) < 0) {
-            return searchRec(root.left, name);
-        }
-        
-        return searchRec(root.right, name);
-    }
     
     /**
-     * Metodo para imprimir el arbol en orden
+     * Metodo que inserta un nodo en la raiz del arbol 
+     * @param data 
      */
-    
-    public void inorderTraversal() {
-        inorderRec(root);
+    public void create(Object data){
+        NodoArbol newNode = new NodoArbol(data);
+        setRoot(newNode);
     }
     
-    private void inorderRec(Nodo root) {
-        if (root != null) {
-            inorderRec(root.left);
-            System.out.println("Familia: " + root.family.getName() + 
-                             ", Padre: " + root.family.getFather() + 
-                             ", Hijos: " + root.family.getSons());
-            inorderRec(root.right);
+    
+    /**
+     * Metodo que inserta un nodo como hijo en el arbol 
+     * @param data
+     * @param parent 
+     */
+    public void insert(Object data, NodoArbol parent){
+        NodoArbol newNode = new NodoArbol(data);
+        if(!isEmpty()){
+            parent.addSon(newNode);
         }
     }
+    
+    
+    /**
+     * Metodo para recorrer el arbol
+     * @param root
+     * @return 
+     */
+    
+    public String preorder(NodoArbol root){
+        String toPrint = " ";
+        if(root != null){
+            toPrint += root.getData()+ "\n";
+            toPrint += preorder(root.getSon());
+            toPrint += preorder(root.getSib());
+        }
+        return toPrint;
+    }
+   
+    /**
+     * Metodo para recorrer el arbol 
+     * @param root
+     * @return 
+     */
+    
+    public String inorder(NodoArbol root){
+        String toPrint= " ";
+        if(root != null){
+            NodoArbol temp = root.getSon();
+            toPrint += inorder(temp);
+            toPrint += root.getData()+ "\n";
+            while(temp != null){
+                temp = temp.getSib();
+                toPrint += inorder(temp);
+                
+            }
+        }
+        return toPrint;
+    }
+    
+    
+    /**
+     * Metodo para recorrer el arbol
+     * @param root
+     * @return 
+     */
+    public String postorder(NodoArbol root){
+        String toPrint = " ";
+        if(root != null){
+            NodoArbol temp = root.getSon();
+            while(temp != null){
+                toPrint += postorder(temp);
+                temp = temp.getSib();
+                
+            }
+            toPrint += root.getData()+ "\n";
+            
+        }
+        return toPrint;
+    }
+    
+    
 }
