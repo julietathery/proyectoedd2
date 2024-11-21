@@ -4,6 +4,7 @@
  */
 package proyectoedd2;
 
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -12,7 +13,8 @@ import javax.swing.JOptionPane;
  * @author julietathery
  */
 public class Interfaz1 extends javax.swing.JFrame {
-    private String file;
+    private File file;
+    private boolean read;
 
     /**
      * Creates new form Interfaz1
@@ -34,6 +36,7 @@ public class Interfaz1 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         upload = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        filePath = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,7 +52,7 @@ public class Interfaz1 extends javax.swing.JFrame {
                 uploadActionPerformed(evt);
             }
         });
-        jPanel1.add(upload, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
+        jPanel1.add(upload, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
 
         jButton1.setText("Ver arbol de la familia Baratheon");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +61,13 @@ public class Interfaz1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
+
+        filePath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filePathActionPerformed(evt);
+            }
+        });
+        jPanel1.add(filePath, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 210, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
 
@@ -69,7 +79,7 @@ public class Interfaz1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void uploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadActionPerformed
-        FileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser();
         try{
             if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
                 file = chooser.getSelectedFile();
@@ -84,6 +94,10 @@ public class Interfaz1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al adjuntar el archivo. Intentelo nuevamente");
         }
     }//GEN-LAST:event_uploadActionPerformed
+
+    private void filePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filePathActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filePathActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +135,7 @@ public class Interfaz1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField filePath;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
