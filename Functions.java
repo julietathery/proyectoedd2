@@ -63,6 +63,48 @@ public class Functions {
         return jsonText; 
         
     } 
+    
+    
+    
+//     public Lista getParadas (String content){
+//        
+//        Lista lista = new Lista();
+//        String[] separar = content.split("Linea");
+//        
+//        
+//        
+//        for (int i = 1; i < separar.length; i++) {
+//            String newString = separar[i].replaceAll("/n","");
+//            newString = newString.replaceAll(" ", "").replaceAll(String.valueOf('"'), "").replaceAll("\\{", "").replaceAll("\\}", "").replaceAll("\\[","").replaceAll("\\]","");
+//            String[] person = newString.split(",");
+//
+//            
+//            lista.insertFinal(new NodoArbol(new Sucursal("OtraLinea")));
+//            for (int j = 0; j < person.length; j++) {
+//                 if (person[j].contains(":")) {
+//                    try{
+//                     String[] probando = person[j].split(":");
+//                     int prueba = Integer.parseInt(person[j].split(":")[0]);
+//                     if (probando.length > 2){
+//                         person[j] = person[j].split(":")[1].trim();
+//                     } else{
+//                         person[j] = person[j].split(":")[1].trim();
+//                     }
+//                     
+//                    } catch (NumberFormatException e) {
+//                      person[j] = person[j].split(":")[0].trim();
+//                      }
+//                    
+//                      
+//                    }
+//                    
+//                if (!checkParadasList (lista, person[j])){
+//                lista.insertFinal(new NodoArbol(new Sucursal(person[j])));
+//            }}}
+//        
+//       
+//        return lista;
+//    }
 
     
 }

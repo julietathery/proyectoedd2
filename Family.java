@@ -13,6 +13,7 @@ public class Family {
     private String lastName;
     private String father;
     private String sons;
+    private Lista adyacentes;
 
     
     /**
@@ -21,11 +22,12 @@ public class Family {
      * @param father
      * @param sons 
      */
-    public Family(String name, String lastName, String father, String sons) {
+    public Family(String name, String lastName, String father, String sons, Lista adyacentes) {
         this.name = name;
         this.lastName = lastName;
         this.father = father;
         this.sons = sons;
+        this.adyacentes = adyacentes;
     }
 
     
@@ -79,6 +81,37 @@ public class Family {
         this.lastName = lastName;
     }
     
-     
+
+    public Lista getAdyacentes() {
+        return adyacentes;
+    }
+    
+
+    public void setAdyacentes(Lista adyacentes) {
+        this.adyacentes = adyacentes;
+    }
+    
+    
+    
+    
+   /**
+    * Metodo para imprimir 
+    * @return 
+    */ 
+    
+   public String printAdy(){
+        if (!this.adyacentes.isEmpty()) {
+            Nodo aux = this.adyacentes.getHead();
+            String adyacentesStr = "";
+            while (aux.getNext() != null) {
+                Family actual = (Family) aux.getDato();
+                adyacentesStr += actual.getName() + " ---> ";
+
+                aux = aux.getNext();
+
+            }
+            Family actual = (Family) aux.getDato();
+            adyacentesStr += actual.getName();
+            return adyacentesStr;
     
 }
