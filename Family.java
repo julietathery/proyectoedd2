@@ -11,8 +11,16 @@ package proyectoedd2;
 public class Family {
     private String name;
     private String lastName;
+    private String number;
     private String father;
+    private String apodo;
+    private String title;
+    private String spouse;
+    private String eyes;
+    private String hair;
     private String sons;
+    private String notes;
+    private String fate;
     private Lista adyacentes;
 
     
@@ -22,11 +30,22 @@ public class Family {
      * @param father
      * @param sons 
      */
-    public Family(String name, String lastName, String father, String sons, Lista adyacentes) {
+    
+    }
+
+    public Family(String name, String lastName, String number, String father, String apodo, String title, String spouse, String eyes, String hair, String sons, String notes, String fate, Lista adyacentes) {
         this.name = name;
         this.lastName = lastName;
+        this.number = number;
         this.father = father;
+        this.apodo = apodo;
+        this.title = title;
+        this.spouse = spouse;
+        this.eyes = eyes;
+        this.hair = hair;
         this.sons = sons;
+        this.notes = notes;
+        this.fate = fate;
         this.adyacentes = adyacentes;
     }
 
@@ -35,8 +54,12 @@ public class Family {
      * Getters and setters de la clase 
      * @return 
      */
+
+    public getName() {
+    }
+
     public String getName() {
-        return name;
+return name;
     }
     
     
@@ -90,6 +113,8 @@ public class Family {
     public void setAdyacentes(Lista adyacentes) {
         this.adyacentes = adyacentes;
     }
+
+
     
     
     

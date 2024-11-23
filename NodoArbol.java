@@ -63,6 +63,15 @@ public class NodoArbol {
     
     
     /**
+     * Metodo que verifica si es una hoja 
+     * @return 
+     */
+    
+    public boolean isEmpty(){
+        return this.son.isEmpty();
+    }
+    
+    /**
      * Metodo para agregar un hijo en el arbol 
      * @param newSon 
      */
@@ -81,6 +90,25 @@ public class NodoArbol {
             setSon(newSon);
         }
     }
+    
+    
+    public boolean buscar(NodoArbol son) {
+        if (!this.isEmpty()) {
+            Persona nueva = (Persona) son.getData();
+            for (int i = 0; i < this.son.getSize(); i++) {
+                NodoArbol hijoActual = (NodoArbol) this.son.getValor(i);
+                Persona personaActual = (Persona) hijoActual.getData();
+                if (personaActual.nombreUnico().equalsIgnoreCase(nueva.nombreUnico())) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        return false;
+    }
+
     
     
     
