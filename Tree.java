@@ -46,6 +46,16 @@ public class Tree {
     
     
     /**
+     * metodo que crea la raiz
+     * @param dato 
+     */
+    public void raiz(Object dato) {
+        NodoArbol raizNueva = new NodoArbol(dato);
+        this.setRoot(raizNueva);
+    }
+    
+    
+    /**
      * Metodo que inserta un nodo en la raiz del arbol 
      * @param data 
      */
@@ -126,6 +136,8 @@ public class Tree {
         }
         return toPrint;
     }
+    
+    
     
     
 }

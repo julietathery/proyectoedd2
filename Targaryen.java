@@ -4,6 +4,8 @@
  */
 package proyectoedd2;
 
+import org.graphstream.graph.Graph;
+
 /**
  *
  * @author julietathery
@@ -17,6 +19,10 @@ public class Targaryen extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
+    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,9 +117,14 @@ public class Targaryen extends javax.swing.JFrame {
         jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
         jButton6.setText("Ver arbol genealogico completo");
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, 40));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, 40));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 660, 450));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 460));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 310));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 150, -1));
@@ -139,6 +150,10 @@ public class Targaryen extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

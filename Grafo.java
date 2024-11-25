@@ -18,8 +18,8 @@ public class Grafo {
      * @param personas 
      */
 
-    public Grafo(Lista personas) {
-        this.personas = personas;
+    public Grafo() {
+        this.personas = null;
     }
 
     
@@ -85,8 +85,8 @@ public class Grafo {
             Family inicio = search(name1);
             Family ultima = search(name2);
             
-            inicio.getSons().insertFinal(ultima);
-            ultima.getAdyacentes().insertFinale(inicio);
+            inicio.getAdyacentes().insertFinal(ultima);
+            ultima.getAdyacentes().insertFinal(inicio);
             
             JOptionPane.showMessageDialog(null, "Conexion agregada con exito.");
     }else{
@@ -102,36 +102,7 @@ public class Grafo {
     }
     
     
-    /**
-     * Metodo que revisa si los nodos estan conectados 
-     * @param name1
-     * @param name2
-     * @return 
-     */
     
-    public boolean connected(String name1, String name2){
-        if(this.search(name1) != null && this.search(name2) != null){
-            Family estacionInicio = search(name1);
-            Family estacionFinal = search(name2);
-            
-            if(estacionInicio.getAdyacentes().search(estacionFinal)){
-                JOptionPane.showMessageDialog(null, "Si estan conectadas.");
-                return true;
-            }else{ 
-                JOptionPane.showMessageDialog(null, "No son adyacentes.");
-                return false;
-            }
-      
-    }else{
-            if(this.search(name1) == null && this.search(name2) != null){
-                JOptionPane.showMessageDialog(null, "no existe.");
-            }else if(this.search(name1) != null && this.search(name2) == null){
-                JOptionPane.showMessageDialog(null, "no existe.");
-            }else{
-                JOptionPane.showMessageDialog(null, "No existe.");
-            }
-            return false;
-}
-    }
+   
     
 }

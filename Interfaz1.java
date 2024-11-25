@@ -33,9 +33,9 @@ public class Interfaz1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        verTargayen = new javax.swing.JButton();
         upload = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        verBaratheon = new javax.swing.JButton();
         filePath = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,13 +43,13 @@ public class Interfaz1 extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Ver arbol de la familia Targaryen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        verTargayen.setText("Ver arbol de la familia Targaryen");
+        verTargayen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                verTargayenActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanel1.add(verTargayen, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         upload.setText("Subir un archivo");
         upload.addActionListener(new java.awt.event.ActionListener() {
@@ -59,13 +59,13 @@ public class Interfaz1 extends javax.swing.JFrame {
         });
         jPanel1.add(upload, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
 
-        jButton1.setText("Ver arbol de la familia Baratheon");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        verBaratheon.setText("Ver arbol de la familia Baratheon");
+        verBaratheon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                verBaratheonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
+        jPanel1.add(verBaratheon, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
 
         filePath.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +79,10 @@ public class Interfaz1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void verBaratheonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBaratheonActionPerformed
         Baratheon ventana = new Baratheon();
         ventana.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_verBaratheonActionPerformed
 
     private void uploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -105,10 +105,10 @@ public class Interfaz1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_filePathActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void verTargayenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verTargayenActionPerformed
         Targaryen ventana = new Targaryen();
         ventana.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_verTargayenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,9 +147,9 @@ public class Interfaz1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField filePath;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton upload;
+    private javax.swing.JButton verBaratheon;
+    private javax.swing.JButton verTargayen;
     // End of variables declaration//GEN-END:variables
 }

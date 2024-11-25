@@ -315,4 +315,21 @@ public class Lista <T> {
             System.out.println(i + ": "+ currentFamily.getName());
         }
     }
+    
+    
+  private static Family findParent(Family member, Lista familyList) {
+    if (member.getFather() == null) {
+        return null; // If the member has no father, return null
+    }
+
+    String fatherName = member.getFather();
+    for (int i = 0; i < familyList.getSize(); i++) {
+        Family current = (Family) familyList.getDato(i).getElement();
+        if (current.getName().equals(fatherName)) {
+            return current;
+        }
+    }
+    return null;
+}
+    
 }

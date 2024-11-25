@@ -4,18 +4,28 @@
  */
 package proyectoedd2;
 
+import java.io.FileReader;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
+
 /**
  *
  * @author julietathery
  */
 public class Baratheon extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Baratheon
      */
     public Baratheon() {
         initComponents();
+        
+        
     }
+    
+    funcionesGrafo funGrafo = new funcionesGrafo();
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,12 +43,13 @@ public class Baratheon extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        nameOutput = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        showBaratheon = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
 
         jButton2.setText("Ver arbol");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -67,26 +78,43 @@ public class Baratheon extends javax.swing.JFrame {
         jLabel2.setText("Buscar a una persona segun su nombre:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        nameOutput.setColumns(20);
+        nameOutput.setRows(5);
+        jScrollPane1.setViewportView(nameOutput);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 110));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 300, 130));
 
         jLabel3.setText("Buscar a una persona segun su nombre:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel4.setText("Seleccione uno de los integrantes para ver su desendencia ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 360, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 150, -1));
+
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 150, -1));
 
         jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
 
-        jButton4.setText("Ver arbol genealogico completo");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
+        showBaratheon.setText("Ver arbol genealogico completo");
+        showBaratheon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showBaratheonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(showBaratheon, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 650, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,9 +123,22 @@ public class Baratheon extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+
+    }//GEN-LAST:event_nameActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void showBaratheonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showBaratheonActionPerformed
+        //Graph dibujoGrafo = funGrafo.arbolcreation();
+        //funGrafo.viewGraph(dibujoGrafo);
+    }//GEN-LAST:event_showBaratheonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,15 +179,16 @@ public class Baratheon extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextArea nameOutput;
+    private javax.swing.JButton showBaratheon;
     // End of variables declaration//GEN-END:variables
 }

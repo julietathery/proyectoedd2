@@ -12,6 +12,7 @@ public class NodoArbol {
     public NodoArbol son;
     public NodoArbol sib;
     public Object data;
+    private Lista descendientes;
 
     
     /**
@@ -92,13 +93,13 @@ public class NodoArbol {
     }
     
     
-    public boolean buscar(NodoArbol son) {
+    public boolean buscar(NodoArbol descendientes) {
         if (!this.isEmpty()) {
-            Persona nueva = (Persona) son.getData();
-            for (int i = 0; i < this.son.getSize(); i++) {
-                NodoArbol hijoActual = (NodoArbol) this.son.getValor(i);
-                Persona personaActual = (Persona) hijoActual.getData();
-                if (personaActual.nombreUnico().equalsIgnoreCase(nueva.nombreUnico())) {
+            Family nueva = (Family) son.getData();
+            for (int i = 0; i < this.descendientes.getSize(); i++) {
+                Nodo hijoActual = (Nodo) this.descendientes.getDato(i);
+                Family personaActual = (Family) hijoActual.getElement();
+                if (personaActual.getName().equalsIgnoreCase(nueva.getName())) {
                     return true;
                 }
             }
@@ -109,6 +110,32 @@ public class NodoArbol {
         return false;
     }
 
+    
+     /**
+     * metodo que busca un nodo
+     * @param root
+     * @param member
+     * @return 
+     */
+    public NodoArbol findNode(Family member) {
+    if (this == null) {
+        return null;
+    }
+    if (this.data.equals(member)) {
+        return this;
+    }
+    NodoArbol found = null;
+    if (this.son != null) {
+        found = this.son.findNode(member); // Search in sons
+    }
+    if (found != null) {
+        return found;
+    }
+    if (this.sib != null) {
+        return this.sib.findNode(member); // Search in siblings
+    }
+    return null;
+}
     
     
     
